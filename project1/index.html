@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+  
+    <style media="screen">
+      #dragg { width: 100px; height:100px; padding: 0.5em; background: green }
+    </style>
+    <script>
+      $(function() {
+        $('#dragg').draggable();
+      });
+      
+    </script>
+  </head>
+  <body>
+    
+    <div id='dragg' class='ui-widget-content'>
+      <p>hey there, please drag me</p>
+    </div>
+    
+  </body>
+</html> 
