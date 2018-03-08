@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Droppable in JQuery UI</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+    <style media="screen">
+      #dragg-1 {
+        width: 100px;
+        height: 95px;
+        padding: 0.5em;
+        margin: 0px 5px 10px 0px;
+      }
+      #drop-1, #drop-2, #drop-3, #drop-4 {
+        width: 150px;
+        height: 100px;
+        float: left;
+        padding: 0.5em;
+        margin: 10px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div id='dragg-1' class='ui-widget-content'>
+      <p>hey, drag me to target</p>
+    </div>
+
+    <div id='drop-1' class="ui-widget-header">
+      <p>drop me please, i am a normal droppable</p>
+    </div>
+
+    <div id='drop-2' class="ui-widget-header">
+      <p>drop me please, i am a normal droppable</p>
+    </div>
+
+    <div id='drop-3' class="ui-widget-header">
+      <p>drop me please, i am a normal droppable</p>
+    </div>
+
+    <div id='drop-4' class="ui-widget-header">
+      <p>drop me please, i am a normal droppable</p>
+    </div>
+
+    <script>
+    $(function () {
+                  $('#dragg-1').draggable();
+                  $('#drop-2').droppable({
+                      disabled: 'true',
+                    drop : function (event, ui) {
+                      $(this)
+                      .addClass('ui-state-highlight')
+                      .find('p')
+                      .html('dropped')
+                    }
+                  });
+                  $("#drop-3").droppable({
+                    tolerance: 'touch',
+                    drop : function (event, ui) {
+                      $(this)
+                      .addClass('ui-state-highlight')
+                      .find('p')
+                      .html('dropped')
+                  }
+                });
+
+    })
+    </script>
+  </body>
+</html>
