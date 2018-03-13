@@ -18,12 +18,12 @@
         margin: 0px 5px 10px 0px;
         float: left;
       }
-      #drop-1, #drop-2, #drop-3, #drop-4 {
-        width: 150px;
-        height: 100px;
-        float: left;
+      #cricket, #chess, #football, #tennis {
+        width: 200px;
+        height: 180px;
         padding: 0.5em;
         margin: 10px;
+        float: left;
       }
     </style>
 
@@ -42,52 +42,68 @@
     <div id='chessplayer' class='ui-widget-content'>
       <p>this space is reserved for chessplayer</p>
     </div>
+    
     <div id='cricket' class='ui-widget-header'>
-      <p>this space is reserved for chessplayer</p>
+      <p>cricketers</p>
     </div>
-    <div id='footballer' class='ui-widget-header'>
-      <p>this space is reserved for footballers</p>
+    <div id='football' class='ui-widget-header'>
+      <p>footballers</p>
     </div>
-    <div id='tennisplayer' class='ui-widget-header'>
-      <p>this space is reserved for tennisplayers</p>
+    <div id='tennis' class='ui-widget-header'>
+      <p>tennisplayers</p>
     </div>
-    <div id='chessplayer' class='ui-widget-header'>
-      <p>this space is reserved for chessplayer</p>
+    <div id='chess' class='ui-widget-header'>
+      <p>chessplayer</p>
     </div>
-
-
-
     <script>
     $(function () {
-                  $('#dragg-1').draggable();
-                  $('#drop-2').droppable({
-                      disabled: 'true',
-                    drop : function (event, ui) {
-                      $(this)
-                      .addClass('ui-state-highlight')
-                      .find('p')
-                      .html('dropped')
-                    }
-                  });
-                  $("#drop-3").droppable({
-                    tolerance: 'touch',
-                    drop : function (event, ui) {
-                      $(this)
-                      .addClass('ui-state-highlight')
-                      .find('p')
-                      .html('dropped')
-                  }
-                });
-                $("#drop-1").droppable({
-                  drop : function (event, ui) {
-                    $(this)
-                    .addClass('ui-state-highlight')
-                    .find('p')
-                    .html('dropped')
-                }
-              });
-
+      $('#cricketer').draggable();
+      $('#footballer').draggable();
+      $('#cricket').droppable({
+          accept: "#cricketer",
+          drop: function(event, ui) {
+            $(this)
+            .addClass('ui-state-highlight')
+            .find('p')
+            .html("i am dropped now")
+          }
+      }
+      );
+      $('#football').droppable({
+          accept: "#footballer",
+          drop: function(event, ui) {
+            $(this)
+            .addClass('ui-state-highlight')
+            .find('p')
+            .html("Dropped")
+          }
+      });
+  
+        $('#tennisplayer').draggable({scope: 'tennis'});
+        $('#chessplayer').draggable({scope: 'chess'});
+        
+        $('#tennis').droppable({
+            scope: "tennis",
+            drop: function(event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html("i am dropped now")
+            }
+        }
+        );
+        $('#chess').droppable({
+            scope: "chess",
+            drop: function(event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html("Dropped")
+            }
+        });
     })
+    
+    
     </script>
   </body>
 </html>
