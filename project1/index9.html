@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Droppable in JQuery UI</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
+    <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"></script>
+    <style media="screen">
+      #cricketer, #footballer, #tennisplayer, #chessplayer {
+        width: 150px;
+        height: 95px;
+        padding: 0.5em;
+        margin: 0px 5px 10px 0px;
+        float: left;
+      }
+      #cricket, #chess, #football, #tennis {
+        width: 200px;
+        height: 180px;
+        padding: 0.5em;
+        margin: 10px;
+        float: left;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div id='cricketer' class='ui-widget-content'>
+      <p>this space is reserved for crickters</p>
+    </div>
+    <div id='footballer' class='ui-widget-content'>
+      <p>this space is reserved for footballers</p>
+    </div>
+    <div id='tennisplayer' class='ui-widget-content'>
+      <p>this space is reserved for tennisplayers(have additional functionality)</p>
+    </div>
+    <div id='chessplayer' class='ui-widget-content'>
+      <p>this space is reserved for chessplayer(have additional functionality)</p>
+    </div>
+    
+    <div id='cricket' class='ui-widget-header'>
+      <p>cricketers</p>
+    </div>
+    <div id='football' class='ui-widget-header'>
+      <p>footballers</p>
+    </div>
+    <div id='tennis' class='ui-widget-header'>
+      <p>tennisplayers</p>
+    </div>
+    <div id='chess' class='ui-widget-header'>
+      <p>chessplayer</p>
+    </div>
+    <script>
+    $(function () {
+      $('#cricketer').draggable();
+      $('#footballer').draggable();
+      $('#cricket').droppable({
+          accept: "#cricketer",
+          drop: function(event, ui) {
+            $(this)
+            .addClass('ui-state-highlight')
+            .find('p')
+            .html("i am dropped now")
+          }
+      }
+      );
+      $('#football').droppable({
+          accept: "#footballer",
+          drop: function(event, ui) {
+            $(this)
+            .addClass('ui-state-highlight')
+            .find('p')
+            .html("Dropped")
+          }
+      });
+  
+        $('#tennisplayer').draggable({scope: 'tennis'});
+        $('#chessplayer').draggable({scope: 'chess'});
+        
+        $('#tennis').droppable({
+            scope: "tennis",
+            drop: function(event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html("i am dropped now")
+            },
+            over: function (event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html('im moving in')  
+            },
+            out: function (event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html('i am moving out')
+            }
+        }
+        );
+        
+        $('#chess').droppable({
+            scope: "chess",
+            drop: function(event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html("i am dropped now")
+            },
+            over: function (event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html('im moving in')  
+            },
+            out: function (event, ui) {
+              $(this)
+              .addClass('ui-state-highlight')
+              .find('p')
+              .html('i am moving out')
+            }
+        }
+        );
+        
+        
+    })
+    </script>
+  </body>
+</html>
