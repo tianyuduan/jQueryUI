@@ -11,11 +11,12 @@
     integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
     crossorigin="anonymous"></script>
     <style media="screen">
-      #dragg-1 {
-        width: 100px;
+      #cricketer, #footballer, #tennisplayer, #chessplayer {
+        width: 150px;
         height: 95px;
         padding: 0.5em;
         margin: 0px 5px 10px 0px;
+        float: left;
       }
       #drop-1, #drop-2, #drop-3, #drop-4 {
         width: 150px;
@@ -29,25 +30,32 @@
   </head>
   <body>
 
-    <div id='dragg-1' class='ui-widget-content'>
-      <p>hey, drag me to target</p>
+    <div id='cricketer' class='ui-widget-content'>
+      <p>this space is reserved for crickters</p>
+    </div>
+    <div id='footballer' class='ui-widget-content'>
+      <p>this space is reserved for footballers</p>
+    </div>
+    <div id='tennisplayer' class='ui-widget-content'>
+      <p>this space is reserved for tennisplayers</p>
+    </div>
+    <div id='chessplayer' class='ui-widget-content'>
+      <p>this space is reserved for chessplayer</p>
+    </div>
+    <div id='cricket' class='ui-widget-header'>
+      <p>this space is reserved for chessplayer</p>
+    </div>
+    <div id='footballer' class='ui-widget-header'>
+      <p>this space is reserved for footballers</p>
+    </div>
+    <div id='tennisplayer' class='ui-widget-header'>
+      <p>this space is reserved for tennisplayers</p>
+    </div>
+    <div id='chessplayer' class='ui-widget-header'>
+      <p>this space is reserved for chessplayer</p>
     </div>
 
-    <div id='drop-1' class="ui-widget-header">
-      <p>drop me please, i am a normal droppable</p>
-    </div>
 
-    <div id='drop-2' class="ui-widget-header">
-      <p>drop me please, i am a normal droppable Disabled</p>
-    </div>
-
-    <div id='drop-3' class="ui-widget-header">
-      <p>drop me please, i am a normal droppable</p>
-    </div>
-
-    <div id='drop-4' class="ui-widget-header">
-      <p>drop me please, i am a normal droppable</p>
-    </div>
 
     <script>
     $(function () {
